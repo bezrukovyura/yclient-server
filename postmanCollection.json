@@ -1,0 +1,942 @@
+{
+	"info": {
+		"_postman_id": "b56288c9-b1bc-4ec1-aaa0-6fff62a1179d",
+		"name": "dark-Js-Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "loop simple",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "efc6c907-2350-46f6-9201-89df67aec94e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "59eca1ed-df0b-42ae-9aa5-c00be2ed7758",
+								"exec": [
+									"pm.test(\"login success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.user.url).to.eql(\"test-on-create.ru\");\r",
+									"    pm.expect(jsonData.md5.length).to.eql(32);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"test-on-create.ru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/create",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0fb6a584-c99f-4110-83a9-d185989715a6",
+								"exec": [
+									"pm.test(\"positive\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.result).to.eql(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"url\": \"test-on-create.ru\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/findByUrl",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"findByUrl"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "loop register",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "efc6c907-2350-46f6-9201-89df67aec94e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "59eca1ed-df0b-42ae-9aa5-c00be2ed7758",
+								"exec": [
+									"pm.test(\"login success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.user.url).to.eql(\"test-on-create-registr.ru\");\r",
+									"    pm.expect(jsonData.md5.length).to.eql(32);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"test-on-create-ReGistr.ru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/create",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0fb6a584-c99f-4110-83a9-d185989715a6",
+								"exec": [
+									"pm.test(\"positive\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.result).to.eql(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"url\": \"test-on-create-registr.ru\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/findByUrl",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"findByUrl"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "loop with space",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "efc6c907-2350-46f6-9201-89df67aec94e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "59eca1ed-df0b-42ae-9aa5-c00be2ed7758",
+								"exec": [
+									"pm.test(\"login success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.user.url).to.eql(\"test-on-create-space.ru\");\r",
+									"    pm.expect(jsonData.md5.length).to.eql(32);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"test-on-create-space.ru \"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/create",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0fb6a584-c99f-4110-83a9-d185989715a6",
+								"exec": [
+									"pm.test(\"positive\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.result).to.eql(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"url\": \"test-on-create-space.ru\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/findByUrl",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"findByUrl"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ec076faa-0073-4e81-81fd-7de32ceda9ed",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c890dded-0707-47f0-937f-6c58231e74b8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "loop with slash",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "efc6c907-2350-46f6-9201-89df67aec94e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "59eca1ed-df0b-42ae-9aa5-c00be2ed7758",
+								"exec": [
+									"pm.test(\"login success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.user.url).to.eql(\"test-on-create-slash.ru\");\r",
+									"    pm.expect(jsonData.md5.length).to.eql(32);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"test-on-create-slash.ru/\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/create",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0fb6a584-c99f-4110-83a9-d185989715a6",
+								"exec": [
+									"pm.test(\"positive\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.result).to.eql(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"url\": \"test-on-create-slash.ru\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/findByUrl",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"findByUrl"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "loop PuneCode",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "efc6c907-2350-46f6-9201-89df67aec94e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "59eca1ed-df0b-42ae-9aa5-c00be2ed7758",
+								"exec": [
+									"pm.test(\"login success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.user.url).to.eql(\"галерея-фасадов.рф\");\r",
+									"    pm.expect(jsonData.md5.length).to.eql(32);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"галерея-фасадов.рф\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/create",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4bc68376-b588-4db8-b49a-0037ca94d350",
+								"exec": [
+									"pm.test(\"positive\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.result).to.eql(true);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"url\": \"xn----7sbbakblea2dxbsq4b5l.xn--p1ai\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/findByUrl",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"findByUrl"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "loop  Http",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "efc6c907-2350-46f6-9201-89df67aec94e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "59eca1ed-df0b-42ae-9aa5-c00be2ed7758",
+								"exec": [
+									"pm.test(\"login success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.user.url).to.eql(\"http-test-on-create.ru\");\r",
+									"    pm.expect(jsonData.md5.length).to.eql(32);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"http://http-test-on-create.ru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/create",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "80f8f7aa-d76f-4cb2-a020-12f6e4a3c431",
+								"exec": [
+									"pm.test(\"positive\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.result).to.eql(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"url\": \"http-test-on-create.ru\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/findByUrl",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"findByUrl"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "loop Https",
+			"item": [
+				{
+					"name": "create",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "efc6c907-2350-46f6-9201-89df67aec94e",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "59eca1ed-df0b-42ae-9aa5-c00be2ed7758",
+								"exec": [
+									"pm.test(\"login success\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.user.url).to.eql(\"https-test-on-create.ru\");\r",
+									"    pm.expect(jsonData.md5.length).to.eql(32);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"url\": \"https://https-test-on-create.ru\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/create",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getByUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c15fc33d-226b-4b2b-8491-b122b6e5ea6c",
+								"exec": [
+									"pm.test(\"positive\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.result).to.eql(true);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"url\": \"https-test-on-create.ru\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/findByUrl",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"findByUrl"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "negative test",
+			"item": [
+				{
+					"name": "getByUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "26d9c411-dffe-4774-b45b-2b903aa01be4",
+								"exec": [
+									"pm.test(\"positive\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.result).to.eql(false);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"url\": \"test-no-exist.ru\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}/users/findByUrl",
+							"host": [
+								"{{urlApi}}"
+							],
+							"path": [
+								"users",
+								"findByUrl"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "cb3f7b10-ab26-40cf-a2d2-d5b2d7e75e68",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fd5d792f-67c5-4839-819e-0bd044d293e5",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Response time is less than 40ms\", function () {",
+					"    pm.expect(pm.response.responseTime).to.be.below(40);",
+					"});",
+					"",
+					"pm.test(\"Status code is 201\", function () {",
+					"    pm.response.to.have.status(201);",
+					"});"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cbaa4dab-a33d-4cbf-a4a1-59a978df15f1",
+			"key": "urlApi",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
