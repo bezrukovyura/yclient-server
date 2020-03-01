@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { User } from './interfaces/user.interface';
 import { CreateUserDto } from './dto/create-user.dto';
 import { map } from 'rxjs/operators';
+import { Company } from './interfaces/company.interface';
 
 
 const md5: (x: string) => string = require('md5');
@@ -59,13 +60,14 @@ export class UsersService {
   }
 
   async getAllCompanies() {
-    let yclientKeyApi = process.env.yclientKeyApi ? process.env.yclientKeyApi : '';
+    // let yclientKeyApi = process.env.yclientKeyApi ? process.env.yclientKeyApi : '6j596f78crj67ryuzpea';
+    let yclientKeyApi = '6j596f78crj67ryuzpea';
     let apiUrl = 'https://api.yclients.com/api/v1/companies';
     const headersRequest = {
       'Content-Type': 'application/json', // afaik this one is not needed
       'Authorization': `Bearer ${yclientKeyApi}`,
     };
-    const result = await this.http.get(apiUrl, { headers: headersRequest }).pipe(
+    const result = await this.http.get<Company[]>(apiUrl, { headers: headersRequest }).pipe(
       map(response => response.data),
     );
     return result;

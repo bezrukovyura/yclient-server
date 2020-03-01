@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, HttpCode } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 import { User } from './interfaces/user.interface';
+import { Company } from './interfaces/company.interface';
 
 
 @Controller('users')
@@ -24,7 +25,7 @@ export class UsersController {
   }
 
   @Get('companies')
-  async getAllCompanies(): Promise<any> {
+  async getAllCompanies() {
     return this.usersService.getAllCompanies();
   }
 
